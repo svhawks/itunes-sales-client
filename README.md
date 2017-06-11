@@ -9,7 +9,7 @@ Add this lines to your application's Gemfile:
 
 ```ruby
 gem 'fastlane'
-gem 'sales_client'
+gem 'sales_client', '~> 0.2.0'
 ```
 
 And then execute:
