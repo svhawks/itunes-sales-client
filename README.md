@@ -5,7 +5,7 @@ Get multiple apps reports with single request.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this lines to your application's Gemfile:
 
 ```ruby
 gem 'fastlane'
@@ -22,7 +22,7 @@ And then execute:
 # Assign the apps itunes ids to an array
 ids = ["1234567..", "1234567..", "1234567.."]
 sales = Spaceship::SalesClient.login("username", "password")
-result = sales.get_data(ids.keys, Date.today - 3.day, Date.today - 1.day)
+result = sales.get_data(ids, Date.today - 3.day, Date.today - 1.day)
 
 =>
 [{"metadata"=>{"key"=>"1234567..", "title"=>"Title",
