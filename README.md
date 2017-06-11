@@ -1,6 +1,6 @@
 # SalesClient
 
-A [fastlane](https://github.com/fastlane/fastlane) extension gem to get apps sales report from itunes connect.
+A [fastlane](https://github.com/fastlane/fastlane) extension gem to get apps sales and analytics reports from itunes connect.
 Get multiple apps reports with single request.
 
 ## Installation
@@ -17,6 +17,7 @@ And then execute:
     $ bundle
 
 ## Usage
+### Sales
 
 ```ruby
 # Assign the apps itunes ids to an array
@@ -25,11 +26,22 @@ sales = Spaceship::SalesClient.login("username", "password")
 result = sales.get_data(ids, Date.today - 3.day, Date.today - 1.day)
 
 =>
-[{"metadata"=>{"key"=>"1234567..", "title"=>"Title",
-  ...
-  {"date"=>"2017-05-21", "total_tax_usd_utc"=>1.733, "units_utc"=>1, "Royalty_utc"=>1.182}
-  ...
-}]
+  [{"metadata"=>{"key"=>"1234567..", "title"=>"Title",
+    ...
+    {"date"=>"2017-05-21", "total_tax_usd_utc"=>1.733, "units_utc"=>1, "Royalty_utc"=>1.182}
+    ...
+  }]
+```
+### Analytics
+
+```ruby
+analytics = Spaceship::AnalyticsClient.login("username", "password")
+data = analytics.get_data("itunes_id", Date.today - 3.day, Date.today - 1.day)
+
+=>
+  {"itcBaseUrl"=>
+    ...
+  }
 ```
 
 ## Contributing

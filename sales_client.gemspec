@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sadik Ay"]
   spec.email         = ["sadikay91@gmail.com"]
 
-  spec.summary       = %q{Get app sales from itunes connect}
+  spec.summary       = %q{Get app sales and analytics from itunes connect}
   spec.description   = %q{A fastlane extension to get your app transactions }
   spec.homepage      = "https://github.com/sadikay/sales_client"
   spec.license       = "MIT"
