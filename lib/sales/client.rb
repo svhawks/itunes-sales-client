@@ -42,7 +42,7 @@ module Spaceship
         req.headers['Referer']        = "https://reportingitc2.apple.com/sales.html?filter_content=#{ids.first}"
       end
 
-      response.body
+      response.body || []
     end
 
     def send_login_request(user, password)

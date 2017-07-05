@@ -7,7 +7,7 @@ module Spaceship
     #####################################################
 
     def self.hostname
-      "https://analytics.itunes.apple.com/"
+      "https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/"
     end
 
     def get_data(id, start_time = Date.today - 30.day, end_time = Date.today)
