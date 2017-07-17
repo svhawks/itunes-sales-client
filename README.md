@@ -1,4 +1,4 @@
-# Itune Sales & Analytics Client
+# Itunes Sales & Analytics Client
 
 A [fastlane](https://github.com/fastlane/fastlane) extension gem to get apps sales and analytics reports from itunes connect.
 Get multiple apps reports with single request.
