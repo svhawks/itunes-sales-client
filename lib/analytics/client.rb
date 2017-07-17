@@ -7,7 +7,7 @@ module Spaceship
     #####################################################
 
     def self.hostname
-      "https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/"
+      "https://analytics.itunes.apple.com/"
     end
 
     def get_data(id, start_time = Date.today - 30.day, end_time = Date.today)
@@ -16,7 +16,15 @@ module Spaceship
 
       ids = [id]
 
-      body = {"adamId":ids,"frequency":"DAY","measures":["units", "impressionsTotal", "pageViewCount", "iap", "sales", "payingUsers"],"group":nil,"dimensionFilters":[],"startTime":start_time,"endTime":end_time}
+      body = { 
+        "adamId": ids, 
+        "frequency": "DAY", 
+        "measures": ["pageViewCount"], 
+        "group": nil, 
+        "dimensionFilters": [], 
+        "startTime": start_time, 
+        "endTime": end_time 
+      }
 
       response = request(:post) do |req|
         req.url "analytics/api/v1/data/time-series"
