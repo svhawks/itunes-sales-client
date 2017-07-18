@@ -81,7 +81,7 @@ data = analytics.get_impressions_total("itunes_id", start_time, end_time)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/sadikay/sales_client.
+Bug reports and pull requests are welcome on GitHub at https://github.com/svtek/itunes-sales-client.
 
 
 ## License
