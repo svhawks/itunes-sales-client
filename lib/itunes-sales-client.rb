@@ -1,4 +1,4 @@
-require "sales_client/version"
+require "itunes-sales-client/version"
 require "sales/client"
 require "analytics/client"
 module Spaceship

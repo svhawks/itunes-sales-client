@@ -10,7 +10,37 @@ module Spaceship
       "https://analytics.itunes.apple.com/"
     end
 
-    def get_data(id, start_time = Date.today - 30.day, end_time = Date.today)
+    def get_units(id, start_time = Date.today - 30.day, end_time = Date.today)
+      measure = 'units'
+      get_data(id, measure, start_time, end_time)
+    end
+
+    def get_page_view_count(id, start_time = Date.today - 30.day, end_time = Date.today)
+      measure = 'pageViewCount'
+      get_data(id, measure, start_time, end_time)
+    end
+
+    def get_iap(id, start_time = Date.today - 30.day, end_time = Date.today)
+      measure = 'iap'
+      get_data(id, measure, start_time, end_time)
+    end
+
+    def get_sales(id, start_time = Date.today - 30.day, end_time = Date.today)
+      measure = 'sales'
+      get_data(id, measure, start_time, end_time)
+    end
+
+    def get_paying_users(id, start_time = Date.today - 30.day, end_time = Date.today)
+      measure = 'payingUsers'
+      get_data(id, measure, start_time, end_time)
+    end
+
+    def get_impressions_total(id, start_time = Date.today - 30.day, end_time = Date.today)
+      measure = 'impressionsTotal'
+      get_data(id, measure, start_time, end_time)
+    end
+
+    def get_data(id, measure, start_time, end_time)
       start_time = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
       end_time = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
 
@@ -19,7 +49,7 @@ module Spaceship
       body = { 
         "adamId": ids, 
         "frequency": "DAY", 
-        "measures": ["pageViewCount"], 
+        "measures": [measure],
         "group": nil, 
         "dimensionFilters": [], 
         "startTime": start_time, 

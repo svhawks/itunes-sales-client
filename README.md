@@ -5,11 +5,11 @@ Get multiple apps reports with single request.
 
 ## Installation
 
-Add this lines to your application's Gemfile:
+Add these lines to your application's Gemfile:
 
 ```ruby
 gem 'fastlane'
-gem 'sales_client', '~> 0.4.0'
+gem 'itunes-sales-client', '~> 1.0.0'
 ```
 
 And then execute:
@@ -36,12 +36,47 @@ result = sales.get_data(ids, Date.today - 3.day, Date.today - 1.day)
 
 ```ruby
 analytics = Spaceship::AnalyticsClient.login("username", "password")
-data = analytics.get_data("itunes_id", Date.today - 3.day, Date.today - 1.day)
+data = analytics.get_units("itunes_id", Date.today - 3.day, Date.today - 1.day)
 
 =>
-  {"itcBaseUrl"=>
-    ...
-  }
+{
+  "size"=>1,
+  "results"=>[
+    {
+      "adamId"=> "asdf12345",
+      "meetsThreshold"=> true,
+      "group"=> nil,
+      "data"=> [
+        {
+          "date" => "2017-07-15T00:00:00Z",
+          "units" => 2.0
+          },
+        {
+          "date" => "2017-07-16T00:00:00Z",
+          "units" => 1.0
+        },
+        {
+          "date" => "2017-07-17T00:00:00Z",
+          "units"=> 3.0 
+        }
+      ],
+      "totals" => 
+      {
+        "value" => 6.0,
+        "type" => "COUNT",
+        "key" => "units" 
+      }
+    }
+  ]
+}
+  
+# available analytics options:
+data = analytics.get_units("itunes_id", start_time, end_time)
+data = analytics.get_page_view_count("itunes_id", start_time, end_time)
+data = analytics.get_iap("itunes_id", start_time, end_time)
+data = analytics.get_sales("itunes_id", start_time, end_time)
+data = analytics.get_paying_users("itunes_id", start_time, end_time)
+data = analytics.get_impressions_total("itunes_id", start_time, end_time)
 ```
 
 ## Contributing
